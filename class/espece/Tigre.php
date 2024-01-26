@@ -1,20 +1,22 @@
 <?php 
 
-class Tigre extends Animaux{
+require_once('../Animaux.php');
 
-private $vagabonder;
 
-public function setVagabonder($vagabonder){
-    $this->vagabonder=$vagabonder;
-}
+ class Tigre extends Animaux{
+   
+    private $espece='Tigre';
 
-public function getVagabonder(){
-   return $this->vagabonder;
-}
 
-public function vagabonder(){
-    $this->vagabonder;
-}
+    protected function emettreSon() {
+        echo "{$this->espece} émet un rugissement.\n";
+    }
+
+    public function seDeplacer() {
+        echo "{$this->espece} vagabonde.\n";
+    }
+
+    
 
 }
 

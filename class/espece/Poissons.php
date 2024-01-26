@@ -1,24 +1,21 @@
-<?php 
+<?php
 
-class Poissons extends Animaux{
+class Poissons extends Animaux
+{
 
-    private $nager;
+    private $espece = 'Poisson';
 
-    public function setNager($nager){
-        $this->nager=$nager;
+
+    public function emettreSon()
+    {
+        echo "{$this->espece} plouk.\n";
     }
-    
-    public function getNager(){
-       return $this->nager;
+
+    public function seDeplacer()
+    {
+        echo "{$this->espece} nage.\n";
     }
-    
-    public function Nager(){
-        $this->nager;
-    }
+
+
     
 }
-
-
-
-
-?>

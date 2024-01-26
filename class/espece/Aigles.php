@@ -2,20 +2,16 @@
 
 class Aigles extends Animaux{
 
-    private $voler;
-
-    public function setVoler($voler){
-        $this->voler=$voler;
-    }
+        private $espece='Aigles';
     
-    public function getVoler(){
-       return $this->voler;
-    }
     
-    public function Voler(){
-        $this->voler;
-    }
+        public function emettreSon() {
+            echo "$this->espece piouxpioux.\n";
+        }
     
+        public function seDeplacer() {
+            echo "$this->espece vols.\n";
+        }
 
 }
 

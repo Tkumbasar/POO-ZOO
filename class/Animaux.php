@@ -1,6 +1,6 @@
 <?php
 
-class Animaux
+ abstract class Animaux
 {
     // Pour chaque espèce, nous devons pouvoir indiquer leur poids, taille, nom de l'espèce  et âge.
     //  De plus, des booléens seront utilisés pour déterminer si l'animal a faim, s'il dort, s'il est malade.
@@ -10,14 +10,21 @@ class Animaux
     private string $nomEspece;
     private int $age;
 
-    private $faim = false;
-    private $dort = false;
-    private $malade = false;
+    private bool $faim = false;
+    private bool $dort = false;
+    private bool $malade = false;
+    private bool $soin = false;
+    
+    private bool $sommeil= false;
+    private bool $manger= false;
 
-    private $manger;
-    private $emettreUnSon;
-    private $soigne;
-    private $sommeil;
+    
+   
+
+    
+    abstract protected function emettreSon(); // Méthode abstraite
+    abstract public function seDeplacer(); // Méthode abstraite
+   
 
    
 
@@ -30,109 +37,89 @@ class Animaux
 
     }
 
-
-
     // Méthode set (setter) : c'est un mutateurs Cette méthode est utilisée pour définir la valeur d'une propriété privée d'une classe. 
     //Elle permet de contrôler l'accès et de mettre en place des validations avant d'assigner une valeur à une propriété.
-    public function setPoids($poids)
+    public function setPoids($poids) :void
     {
         $this->poids = $poids;
     }
-
-
     // Méthode get (getter) :c'est un accesseurs Cette méthode est utilisée pour obtenir la valeur d'une propriété privée d'une classe. 
     //Elle permet d'accéder à la valeur d'une propriété sans permettre une modification directe depuis l'extérieur de la classe.
-    public function getPoids()
+    public function getPoids() :int
     {
         return $this->poids;
     }
-
-    public function setTaille($taille)
+    public function setTaille($taille) :void
     {
         $this->taille = $taille;
     }
-
-    public function getTaille()
+    public function getTaille():int
     {
         return $this->taille;
     }
-
-    public function setNomEspece($nomEspece)
+    public function setNomEspece($nomEspece):void
     {
         $this->nomEspece=$nomEspece;
     }
-    public function getNomEspece()
+    public function getNomEspece():string
     {
         return $this->nomEspece;
     }
-
-    public function getNom()
-    {
-        return $this->nomEspece;
-    }
-
-    public function setAge($age)
+    public function setAge($age):void
     {
         $this->age = $age;
     }
-
-    public function getAge()
+    public function getAge():int
     {
         return $this->age;
     }
-
-    public function setManger($manger){
-        $this->manger=$manger;
-    }
-    public function getManger(){
-        return $this->manger;
-    }
-
-    public function setEmettreUnSon($emettreUnSon){
-        $this->emettreUnSon=$emettreUnSon;
-    }
-    public function getEmettreUnSon(){
-        return $this->emettreUnSon;
-    }
-
-    public function setFaim($faim){
+    public function setFaim($faim):void
+    {
         $this->faim=$faim;
     } 
-
-    public function getFaim(){
+    public function getFaim():bool
+    {
        return $this->faim;
     } 
-
-    public function setDort($dort){
+    public function setDort($dort):void
+    {
         $this->dort=$dort;
     } 
-
-    public function getDort(){
+    public function getDort():bool
+    {
        return $this->dort;
     } 
-    
-    public function setMalade($malade){
+    public function setMalade($malade):void
+    {
         $this->malade=$malade;
     }
-
-    public function getMalade(){
+    public function getMalade():bool
+    {
         return $this->malade;
     }
-
-    public function setSoigne($soigne){
-        $this->soigne=$soigne;
+    public function setSoin($soin):void
+    {
+        $this->soin=$soin;
     }
-
-    public function getSoigne(){
-        return $this->soigne;
+    public function getSoin()
+    {
+        $this->soin;
     }
-
     public function setSommeil($sommeil){
         $this->sommeil=$sommeil;
     }
     public function getSommeil(){
-        return $this->sommeil;
+        $this->sommeil;
     }
+    public function setManger($manger)
+    {
+        $this->manger=$manger;
+    }
+    public function getManger()
+    {
+        $this->manger;
+    }
+
 
     public function afficherLesCaracteristique(){
     
@@ -141,6 +128,6 @@ class Animaux
     echo "le nom de l'espece : " . $this->getNomEspece() ."<br>";
     echo "l'age : " . $this->getAge() ."<br>";}
   
-}
 
+}
   
